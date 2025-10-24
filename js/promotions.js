@@ -42,14 +42,13 @@ closeIcon.addEventListener("click" , () => {
 
 function sendEmail(params) {
     var tempParams = {
-        from_namenew: document.getElementById("full-name").value,
-        full_namenew: document.getElementById("full-name").value,
-        emailaddressnew: document.getElementById("email-address").value,
+        from_namenew: document.getElementById("name").value,
+        emailaddressnew: document.getElementById("email").value,
         phonenew: document.getElementById("phone").value,
-        dninew: document.getElementById("dni").value,
-        pet_namenew: document.getElementById("pet-name").value,
-        pet_breednew: document.getElementById("pet-breed").value,
-        agenew: document.getElementById("age").value,
+        ciudadnew: document.getElementById("ciudad").value,
+        departamentonew: document.getElementById("departamento").value,
+        sucursalnew: document.getElementById("sucursal").value,
+        comentariosnew: document.getElementById("comentarios").value,
     };
     
     emailjs.send('service_do37ddm','template_yr6kjaw', tempParams).then(function(res) {
