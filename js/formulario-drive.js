@@ -23,8 +23,9 @@ form.addEventListener("submit", async (e) => {
     const archivoBase64 = reader.result;
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzIIKneqf4fo3cMIGAZtky56WNS2h_PAWk8oFa2NiDtPllqFBRSgnaTuo6-2Q7nLjf1/exec", {  // Pega acá la URL del Apps Script
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyzfVxjKt7t25xVDXbILR5sGe0pBu2supSsmwKxBhpIMA2T1CnaT8ZyS2IAsHJMjsN1/exec", {
         method: "POST",
+        mode: "cors",
         body: JSON.stringify({
           name,
           email,
