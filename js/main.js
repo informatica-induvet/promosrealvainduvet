@@ -19,11 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Recolectar datos del formulario
     const datos = {
-      nombre: document.getElementById('name').value,
+      name: document.getElementById('name').value,
       email: document.getElementById('email').value,
-      telefono: document.getElementById('phone').value,
-      factura: document.getElementById('invoice').value,
+      phone: document.getElementById('phone').value,
+      ciudad: document.getElementById('ciudad').value,
+      departamento: document.getElementById('departamento').value,
       sucursal: document.getElementById('location').value,
+      comentarios: document.getElementById('comentarios').value,
+      factura: document.getElementById('factura').value,
     };
 
     // Guardar datos en Firebase
@@ -41,9 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const templateParams = {
       nombre: datos.nombre,
       email: datos.email,
-      telefono: datos.telefono,
-      factura: datos.factura,
+      phone: datos.phone,
+      ciudad: datos.ciudad,
+      departamento: datos.departamento,
       sucursal: datos.sucursal,
+      comentarios: datos.comentarios,
+      factura: datos.factura,
     };
 
     emailjs.send('TU_SERVICE_ID', 'TU_TEMPLATE_ID', templateParams)
