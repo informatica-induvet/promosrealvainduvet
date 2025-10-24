@@ -445,10 +445,11 @@
             const closeModal = document.querySelector('.modal-close');
             const closeBtn = modal.querySelector('.btn');
 
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                modal.classList.add('active');
-            });
+            
+           // form.addEventListener('submit', function (e) {
+           //      e.preventDefault();
+           //     modal.classList.add('active');
+           // });
 
             closeModal.addEventListener('click', function () {
                 modal.classList.remove('active');
@@ -492,10 +493,10 @@
         });
     </script>
 
-<!-- Scripts -->
-    <script type="module" src="js/index.js"></script>
+<!-- Scripts -->    
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/formulario.js"></script>
+    <script type="module" src="js/index.js"></script>
     
 </body>
 
