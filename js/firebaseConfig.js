@@ -19,17 +19,18 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Function to save registration data
-export const saveRegistro = async (name, email, phone, invoice, location, product, quantity) => {
+export const saveRegistro = async (name, email, phone, ciudad, departamento, sucursal, comentarios, archivo, archivoNombre => {
   try {
     await addDoc(collection(db, "participaciones"), {
-      nombre: name,
-      email: email,
-      telefono: phone,
-      factura: invoice,
-      sucursal: location,
-      fecha: new Date(),
-      producto: product,
-      cantidad: quantity
+      name,
+          email,
+          phone,
+          ciudad,
+          departamento,
+          sucursal,
+          comentarios,
+          archivo: archivoBase64,
+          archivoNombre: archivo.name
     });
     console.log("Registro guardado con éxito.");
   } catch (error) {
