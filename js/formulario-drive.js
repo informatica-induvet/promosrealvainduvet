@@ -23,7 +23,7 @@ form.addEventListener("submit", async (e) => {
     const archivoBase64 = reader.result;
 
     try {
-      const response = await fetch("TU_URL_DEL_WEB_APP", {  // Pega acá la URL del Apps Script
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzgAGEqExE58xls3phIDdAr77ZwJBc93NsInKFDNUOizRcLypr3uH2Z3UvWCA5FloSO/exec", {  // Pega acá la URL del Apps Script
         method: "POST",
         body: JSON.stringify({
           name,
