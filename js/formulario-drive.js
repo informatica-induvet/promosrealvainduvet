@@ -1,14 +1,8 @@
-import { db, storage } from "./firebase.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
-import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-storage.js";
-
-// Selecciona el formulario original por su ID
 const form = document.getElementById("registration-form");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  // Obtiene los valores según los IDs originales de tu HTML
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
@@ -18,29 +12,45 @@ form.addEventListener("submit", async (e) => {
   const comentarios = document.getElementById("comentarios").value;
   const archivo = document.getElementById("factura").files[0];
 
-  try {
-    // 1️⃣ Subir imagen de la factura a Firebase Storage
-    const storageRef = ref(storage, `facturas/${archivo.name}`);
-    await uploadBytes(storageRef, archivo);
-    const urlFactura = await getDownloadURL(storageRef);
-
-    // 2️⃣ Guardar todos los datos en Firestore
-    await addDoc(collection(db, "participantes"), {
-      name,
-      email,
-      phone,
-      ciudad,
-      departamento,
-      sucursal,
-      comentarios,
-      urlFactura,
-      fecha: new Date()
-    });
-
-    alert("✅ ¡Formulario enviado correctamente!");
-    form.reset();
-  } catch (error) {
-    console.error("Error al enviar el formulario:", error);
-    alert("❌ Ocurrió un error al enviar los datos. Por favor, intenta nuevamente.");
+  if (!archivo) {
+    alert("Debes adjuntar la factura.");
+    return;
   }
+
+  const reader = new FileReader();
+  reader.readAsDataURL(archivo);
+  reader.onload = async () => {
+    const archivoBase64 = reader.result;
+
+    try {
+      const response = await fetch("TU_URL_DEL_WEB_APP", {  // Pega acá la URL del Apps Script
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          ciudad,
+          departamento,
+          sucursal,
+          comentarios,
+          archivo: archivoBase64,
+          archivoNombre: archivo.name
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const result = await response.json();
+      if (result.status === "success") {
+        alert("✅ ¡Formulario enviado correctamente!");
+        form.reset();
+      } else {
+        alert("❌ Ocurrió un error: " + result.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("❌ Error al enviar los datos.");
+    }
+  };
 });
