@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promociones Realva Induvet</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <nav class="navbar">
+      <a href="https://www.induvet.com/" class="logo-link">
+        <img src="img/logo.png" alt="logo" class="logo">
+      </a>
+      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links">
+        <li><a href="">Inicio</a></li>
+        <li><a href="#promos">Promociones</a></li>
+        <li><a href="#prizes">Premios</a></li>
+        <li><a href="#brands">Marcas</a></li>
+        <li><a href="#register">Registro</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Form Section -->
+<section id="register" class="form-section">
+  <div class="container">
+    <div class="form-container">
+      <h2>Llena el Formulario y Participa</h2>
+      <form id="registration-form">
+        <label>Nombre completo</label>
+        <input type="text" id="name" required>
+
+        <label>Correo electrónico</label>
+        <input type="email" id="email">
+
+        <label>Teléfono</label>
+        <input type="tel" id="phone">
+
+        <label>Ciudad</label>
+        <input type="text" id="ciudad">
+
+        <label>Departamento</label>
+        <input type="text" id="departamento">
+
+        <label>Tienda o comercio</label>
+        <input type="text" id="sucursal">
+
+        <label>Comentarios</label>
+        <input type="text" id="comentarios">
+
+        <label>Adjunta imagen de tu factura</label>
+        <input type="file" id="factura" required>
+
+        <label>
+          <input type="checkbox" required> Acepto términos y condiciones
+        </label>
+
+        <button type="submit">Registrarse</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" id="success-modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <h3>¡Ya estás participando!</h3>
+    <p>Mantente al tanto en nuestras redes para saber si tú y tu mascota son los ganadores.</p>
+    <button class="btn-close">Cerrar</button>
+  </div>
+</div>
+
+<!-- Back to Top -->
+<div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+
+<!-- Scripts -->
+<script src="js/formulario-drive.js" type="module"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.querySelector('i').classList.toggle('fa-bars');
+    menuToggle.querySelector('i').classList.toggle('fa-times');
+  });
+
+  // Modal
+  const modal = document.getElementById('success-modal');
+  const closeModal = modal.querySelector('.modal-close');
+  const closeBtn = modal.querySelector('.btn-close');
+  closeModal.addEventListener('click', () => modal.classList.remove('active'));
+  closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+  window.addEventListener('click', e => { if(e.target===modal) modal.classList.remove('active'); });
+
+  // Back to top
+  const backToTop = document.querySelector('.back-to-top');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY>500) backToTop.classList.add('active'); 
+    else backToTop.classList.remove('active');
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+});
+</script>
+
+</body>
+</html>
