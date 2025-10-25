@@ -1,7 +1,14 @@
 const form = document.getElementById("registration-form");
+const submitButton = form.querySelector("button[type='submit']");
+const modal = document.getElementById("success-modal");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  // Mostrar "Enviando..." y deshabilitar botón
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Enviando...";
+  submitButton.disabled = true;
 
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
