@@ -57,9 +57,16 @@ form.addEventListener("submit", async (e) => {
       // 👇 Cuando se usa no-cors, no podemos leer la respuesta, así que se asume éxito
       alert("✅ ¡Formulario enviado correctamente!");
       form.reset();
+
+      // Restaurar el botón
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+      
     } catch (error) {
       console.error("Error:", error);
       alert("❌ Error al enviar los datos. Intenta nuevamente.");
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
     }
   };
 });
