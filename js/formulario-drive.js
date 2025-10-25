@@ -23,7 +23,7 @@ form.addEventListener("submit", async (e) => {
     const archivoBase64 = reader.result;
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbyzfVxjKt7t25xVDXbILR5sGe0pBu2supSsmwKxBhpIMA2T1CnaT8ZyS2IAsHJMjsN1/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxXDT-5doie3rA0Rj17bR0gvbGP8zhglahrnzwIlsgXkSBvXZjGe-kFdD19NrjF5hDG/exec", {
         method: "POST",
         mode: "cors",
         body: JSON.stringify({
