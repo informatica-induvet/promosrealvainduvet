@@ -17,6 +17,7 @@ form.addEventListener("submit", async (e) => {
   const departamento = document.getElementById("departamento").value.trim();
   const sucursal = document.getElementById("sucursal").value.trim();
   const comentarios = document.getElementById("comentarios").value.trim();
+  const cantidad = document.getElementById("cantidad").value.trim();
   const archivo = document.getElementById("factura").files[0];
 
   if (!archivo) {
@@ -48,6 +49,7 @@ form.addEventListener("submit", async (e) => {
             departamento,
             sucursal,
             comentarios,
+            cantidad,
             archivo: archivoBase64,
             archivoNombre: archivo.name,
           }),
