@@ -49,6 +49,7 @@ function sendEmail(params) {
         departamentonew: document.getElementById("departamento").value,
         sucursalnew: document.getElementById("sucursal").value,
         comentariosnew: document.getElementById("comentarios").value,
+        cantidadnew: document.getElementById("cantidad").value,
     };
     
     emailjs.send('service_do37ddm','template_yr6kjaw', tempParams).then(function(res) {
