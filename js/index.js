@@ -12,8 +12,9 @@ registro.addEventListener("submit", (e) => {
     const departamento = document.getElementById("departamento").value.trim();
     const sucursal = document.getElementById("sucursal").value.trim();
     const comentarios = document.getElementById("comentarios").value.trim();
+    const cantidad = document.getElementById("cantidad").value.trim();
 
-    console.log("Datos recibidos:", { name, email, phone, ciudad, departamento, sucursal, comentarios });
+    console.log("Datos recibidos:", { name, email, phone, ciudad, departamento, sucursal, comentarios, cantidad });
 
     // Enviar el formulario con EmailJS
     const serviceId = 'service_3vv7tpq';
