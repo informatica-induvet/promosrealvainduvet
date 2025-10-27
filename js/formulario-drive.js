@@ -33,7 +33,7 @@ form.addEventListener("submit", async (e) => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxmZxMt7v8Isj9u9cqeHGdwuXkia1fxeAmVOzM20rM0oGGSrGy0k2-ihfvW2boVh5Q/exec",
+        "https://script.google.com/macros/s/AKfycbx7IFa-WquIL6S-RsMCMG2ZJZBE4b4j5ebHHQqEvniMDBrnQUMgMfET-_bGD27qc35B/exec",
         {
           method: "POST",
           // 👇 Esta parte es CLAVE: evita que el navegador bloquee por CORS
