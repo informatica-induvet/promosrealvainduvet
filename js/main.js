@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       departamento: document.getElementById('departamento').value,
       sucursal: document.getElementById('location').value,
       comentarios: document.getElementById('comentarios').value,
+      cantidad: document.getElementById('cantidad').value,
       factura: document.getElementById('factura').value,
     };
 
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       departamento: datos.departamento,
       sucursal: datos.sucursal,
       comentarios: datos.comentarios,
+      cantidad: datos.cantidad,
       factura: datos.factura,
     };
 
